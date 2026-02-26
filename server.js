@@ -11,7 +11,7 @@ app.get("/",(q,r)=>r.json({status:"BWEB LIVE!"}));
 app.post("/place-order",async(q,r)=>{
 try{
 const b=q.body;
-const t=parseFloat(b.unit_price)parseInt(b.quantity);
+const t=parseFloat(b.unit_price)*parseInt
 const cm=+(tC).toFixed(2);
 const sa=+(t*S).toFixed(2);
 const{data:o,error}=await sb.from("orders").insert([{buyer_name:b.buyer_name,buyer_email:b.buyer_email,buyer_phone:b.buyer_phone,seller_id:b.seller_id,seller_name:b.seller_name,product_id:b.product_id,product_name:b.product_name,product_emoji:b.product_emoji||"📦",quantity:parseInt(b.quantity),unit_price:parseFloat(b.unit_price),total_amount:t,commission:cm,seller_amount:sa,payment_method:b.payment_method,status:"pending",payment_status:"unpaid",delivery_confirmed:false,seller_paid:false}]).select().single();
